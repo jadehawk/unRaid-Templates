@@ -36,7 +36,7 @@ Make Note of CLIENT ID and CLIENT SECRET this are REQUIRED.</Overview>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1652913031</DateInstalled>
+  <DateInstalled>1652913447</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Description>This Tools provides a way to keep your watched history synced FROM Plex Server To Trakt.tv (IT will not do history prior to tool Installation) it uses WebHooks to Accomplish this so a PLEX PASS Subscription is needed to use WebHooks.&#xD;
@@ -71,7 +71,7 @@ Make Note of CLIENT ID and CLIENT SECRET this are REQUIRED.</Description>
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/user/appdata/goplaxt</HostDir>
+      <HostDir/>
       <ContainerDir>/app/keystore</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
@@ -108,7 +108,7 @@ Make Note of CLIENT ID and CLIENT SECRET this are REQUIRED.</Description>
   <Config Name="Client ID (From Trakt .tv API App)" Target="TRAKT_ID" Default="" Mode="" Description="Client ID (From Trakt .tv API App)" Type="Variable" Display="always" Required="true" Mask="false"/>
   <Config Name="Client SECRET (From Trakt .tv API App)" Target="TRAKT_SECRET" Default="" Mode="" Description="Client SECRET (From Trakt .tv API App)" Type="Variable" Display="always" Required="true" Mask="false"/>
   <Config Name="Time Zone" Target="TZ" Default="" Mode="" Description="Container Variable: TZ" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Host Path for /keystore" Target="/app/keystore" Default="" Mode="rw" Description="Usually : /mnt/user/appdata/goplaxt" Type="Path" Display="always" Required="false" Mask="false"/>
   <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="advanced-hide" Required="false" Mask="false">99</Config>
   <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="advanced-hide" Required="false" Mask="false">100</Config>
-  <Config Name="Host Path for /keystore" Target="/app/keystore" Default="/mnt/user/appdata/goplaxt" Mode="rw" Description="Container Path: /app/keystore" Type="Path" Display="advanced-hide" Required="false" Mask="false">/mnt/user/appdata/goplaxt</Config>
 </Container>
