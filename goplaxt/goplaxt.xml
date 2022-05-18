@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>GoPlaxt</Name>
+  <Repository>xanderstrike/goplaxt</Repository>
+  <Registry>https://hub.docker.com/r/xanderstrike/goplaxt</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/XanderStrike/goplaxt</Project>
+  <Overview>This Tools provides a way to keep your watched history synced FROM Plex Server To Trakt.tv (IT will not do history prior to tool Installation) it uses WebHooks to Accomplish this so a PLEX PASS Subscription is needed to use WebHooks.&#xD;
+&#xD;
+Trakt.tv has a build in tool for the same thingbut requires Trakt.tv VIP Subscription to use it.&#xD;
+&#xD;
+GoPlaxt is free and doesn't require Trakt.tv VIP subscription.&#xD;
+&#xD;
+Original Dev has stop development after Trakt.tv added it to the VIP subscription, However the dev (XandarStrike) has stated he will continue to merge PR's to the project but will not answer if any issues arrise.&#xD;
+&#xD;
+This is the SELFHOSTED version of the same tool that dev (XandarStrike) offers freely on his server at https://plaxt.astandke.com/&#xD;
+&#xD;
+Requirements:&#xD;
+- Create a new API App on Trakt.tv&#xD;
+- Enable Scrobble and Check-in&#xD;
+- Set Redirect URL to:&#xD;
+  - https://sub.example.com:/authorize (keep in mind your Plaxt instance must be accessible to all the Plex servers you intend to play media from. )&#xD;
+  - http://your-local-ip:8000/authorize&#xD;
+- Set JavaScript (cors) origins to:&#xD;
+  - http://your-local-ip:8000&#xD;
+&#xD;
+Make Note of CLIENT ID and CLIENT SECRET this are REQUIRED.</Overview>
+  <Category>Tools:</Category>
+  <WebUI>http://[IP]:[PORT:8000]</WebUI>
+  <TemplateURL/>
+  <Icon>https://github.com/jadehawk/unRaid-Templates/blob/main/goplaxt/trakt.png?raw=true</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1652913031</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>This Tools provides a way to keep your watched history synced FROM Plex Server To Trakt.tv (IT will not do history prior to tool Installation) it uses WebHooks to Accomplish this so a PLEX PASS Subscription is needed to use WebHooks.&#xD;
+&#xD;
+Trakt.tv has a build in tool for the same thingbut requires Trakt.tv VIP Subscription to use it.&#xD;
+&#xD;
+GoPlaxt is free and doesn't require Trakt.tv VIP subscription.&#xD;
+&#xD;
+Original Dev has stop development after Trakt.tv added it to the VIP subscription, However the dev (XandarStrike) has stated he will continue to merge PR's to the project but will not answer if any issues arrise.&#xD;
+&#xD;
+This is the SELFHOSTED version of the same tool that dev (XandarStrike) offers freely on his server at https://plaxt.astandke.com/&#xD;
+&#xD;
+Requirements:&#xD;
+- Create a new API App on Trakt.tv&#xD;
+- Enable Scrobble and Check-in&#xD;
+- Set Redirect URL to:&#xD;
+  - https://sub.example.com:/authorize (keep in mind your Plaxt instance must be accessible to all the Plex servers you intend to play media from. )&#xD;
+  - http://your-local-ip:8000/authorize&#xD;
+- Set JavaScript (cors) origins to:&#xD;
+  - http://your-local-ip:8000&#xD;
+&#xD;
+Make Note of CLIENT ID and CLIENT SECRET this are REQUIRED.</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8000</HostPort>
+        <ContainerPort>8000</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/goplaxt</HostDir>
+      <ContainerDir>/app/keystore</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value/>
+      <Name>TRAKT_ID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>TRAKT_SECRET</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>TZ</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>99</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Web UI Port:" Target="8000" Default="" Mode="tcp" Description="Web UI Port" Type="Port" Display="always" Required="false" Mask="false">8000</Config>
+  <Config Name="Client ID (From Trakt .tv API App)" Target="TRAKT_ID" Default="" Mode="" Description="Client ID (From Trakt .tv API App)" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Client SECRET (From Trakt .tv API App)" Target="TRAKT_SECRET" Default="" Mode="" Description="Client SECRET (From Trakt .tv API App)" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Time Zone" Target="TZ" Default="" Mode="" Description="Container Variable: TZ" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="advanced-hide" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="advanced-hide" Required="false" Mask="false">100</Config>
+  <Config Name="Host Path for /keystore" Target="/app/keystore" Default="/mnt/user/appdata/goplaxt" Mode="rw" Description="Container Path: /app/keystore" Type="Path" Display="advanced-hide" Required="false" Mask="false">/mnt/user/appdata/goplaxt</Config>
+</Container>
