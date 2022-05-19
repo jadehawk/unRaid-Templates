@@ -7,7 +7,7 @@
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Support/>
+  <Support>https://forums.unraid.net/topic/123684-support-plaxt/#comment-1127912</Support>
   <Project>https://github.com/XanderStrike/goplaxt</Project>
   <Overview>This Tools provides a way to keep your watched history synced FROM Plex Server To Trakt.tv (IT will not do history prior to tool Installation) it uses WebHooks to Accomplish this so a PLEX PASS Subscription is needed to use WebHooks.&#xD;
 &#xD;
@@ -29,21 +29,21 @@ Requirements:&#xD;
   - http://your-local-ip:8000&#xD;
 &#xD;
 Make Note of CLIENT ID and CLIENT SECRET this are REQUIRED.</Overview>
-  <Category>Tools:</Category>
+  <Category>Other: MediaApp:Other MediaServer:Other</Category>
   <WebUI>http://[IP]:[PORT:8000]</WebUI>
-  <TemplateURL/>
+  <TemplateURL>https://raw.githubusercontent.com/jadehawk/unRaid-Templates/master/plaxt/plaxt.xml</TemplateURL>
   <Icon>https://github.com/jadehawk/unRaid-Templates/blob/main/plaxt/trakt.png?raw=true</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1652913447</DateInstalled>
+  <DateInstalled>1652979757</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Description>This Tools provides a way to keep your watched history synced FROM Plex Server To Trakt.tv (IT will not do history prior to tool Installation) it uses WebHooks to Accomplish this so a PLEX PASS Subscription is needed to use WebHooks.&#xD;
 &#xD;
-Trakt.tv has a build in tool for the same thing but requires Trakt.tv VIP Subscription to use it.&#xD;
+Trakt.tv has a build in tool for the same thingbut requires Trakt.tv VIP Subscription to use it.&#xD;
 &#xD;
-Plaxt is free and doesn't require Trakt.tv VIP subscription.&#xD;
+GoPlaxt is free and doesn't require Trakt.tv VIP subscription.&#xD;
 &#xD;
 Original Dev has stop development after Trakt.tv added it to the VIP subscription, However the dev (XandarStrike) has stated he will continue to merge PR's to the project but will not answer if any issues arrise.&#xD;
 &#xD;
