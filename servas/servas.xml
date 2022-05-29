@@ -7,7 +7,7 @@
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Support/>
+  <Support>https://forums.unraid.net/topic/124199-support-servas/</Support>
   <Project>https://github.com/beromir/Servas</Project>
   <Overview>A self-hosted bookmark management tool.&#xD;
 Servas is based on Laravel and Inertia.js and uses Tailwind CSS and Svelte for the frontend.&#xD;
@@ -47,7 +47,7 @@ go to http://UnraidIP:8086/register to create a user.&#xD;
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1653854824</DateInstalled>
+  <DateInstalled>1653855751</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Description>A self-hosted bookmark management tool.&#xD;
