@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Servas</Name>
+  <Repository>beromir/servas</Repository>
+  <Registry>https://hub.docker.com/r/beromir/servas</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/beromir/Servas</Project>
+  <Overview>A self-hosted bookmark management tool.&#xD;
+Servas is based on Laravel and Inertia.js and uses Tailwind CSS and Svelte for the frontend.&#xD;
+&#xD;
+It still needs a lot of work but developer is active and available at github &#xD;
+&#xD;
+Requirements:&#xD;
+MySQL / Mariadb Database already running and available.&#xD;
+Create a User and DB for servas on your MySQL/Mariadb Instance.&#xD;
+&#xD;
+Created config file (filename is : ".ENV" just a dot plus env ) and place inside servas config folder (/mnt/user/appdata/servas/) the content as follow:&#xD;
+APP_NAME=Servas&#xD;
+APP_ENV=production&#xD;
+APP_KEY=&#xD;
+APP_DEBUG=false&#xD;
+APP_URL=&#xD;
+&#xD;
+DB_CONNECTION=mysql&#xD;
+DB_HOST=**** Enter IP/Hostname of mysql/mariadb ****&#xD;
+DB_PORT=3306&#xD;
+DB_DATABASE=**** name you assigned to servasdb ex. servasdb ****&#xD;
+DB_USERNAME=**** username allowed to access servasdb ****&#xD;
+DB_PASSWORD=**** password for user allowed to access servasdb ****&#xD;
+&#xD;
+&#xD;
+Once Container is running open the container console run the following 2 commands one at a time:&#xD;
+php artisan migrate&#xD;
+php artisan key:generate&#xD;
+&#xD;
+restart container and you should have acces to WebUI at port:8086&#xD;
+go to http://UnraidIP:8086/register to create a user.&#xD;
+</Overview>
+  <Category>Productivity:</Category>
+  <WebUI>http://[IP]:[PORT:80]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://github.com/jadehawk/unRaid-Templates/blob/main/servas/servas.png?raw=true</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1653854824</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>A self-hosted bookmark management tool.&#xD;
+Servas is based on Laravel and Inertia.js and uses Tailwind CSS and Svelte for the frontend.&#xD;
+&#xD;
+It still needs a lot of work but developer is active and available at github &#xD;
+&#xD;
+Requirements:&#xD;
+MySQL / Mariadb Database already running and available.&#xD;
+Create a User and DB for servas on your MySQL/Mariadb Instance.&#xD;
+&#xD;
+Created config file (filename is : ".ENV" just a dot plus env ) and place inside servas config folder (/mnt/user/appdata/servas/) the content as follow:&#xD;
+APP_NAME=Servas&#xD;
+APP_ENV=production&#xD;
+APP_KEY=&#xD;
+APP_DEBUG=false&#xD;
+APP_URL=&#xD;
+&#xD;
+DB_CONNECTION=mysql&#xD;
+DB_HOST=**** Enter IP/Hostname of mysql/mariadb ****&#xD;
+DB_PORT=3306&#xD;
+DB_DATABASE=**** name you assigned to servasdb ex. servasdb ****&#xD;
+DB_USERNAME=**** username allowed to access servasdb ****&#xD;
+DB_PASSWORD=**** password for user allowed to access servasdb ****&#xD;
+&#xD;
+&#xD;
+Once Container is running open the container console run the following 2 commands one at a time:&#xD;
+php artisan migrate&#xD;
+php artisan key:generate&#xD;
+&#xD;
+restart container and you should have acces to WebUI at port:8086&#xD;
+go to http://UnraidIP:8086/register to create a user.&#xD;
+</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8086</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/servas/.env</HostDir>
+      <ContainerDir>/var/www/html/.env</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>99</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name=".ENV" Target="/var/www/html/.env" Default="" Mode="rw" Description="Container Path: /var/www/html/.env" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/servas/.env</Config>
+  <Config Name="Web UI" Target="80" Default="" Mode="tcp" Description="Container Port: 80" Type="Port" Display="always" Required="false" Mask="false">8086</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="advanced-hide" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="advanced-hide" Required="false" Mask="false">100</Config>
+</Container>
