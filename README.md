@@ -16,4 +16,3 @@
  - Enter the required info and hit save
  - Done
  
-Support thread: https://lime-technology.com/forum/index.php?topic=48798.0
