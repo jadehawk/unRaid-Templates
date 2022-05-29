@@ -3,7 +3,7 @@
 **How to install:**
 
 **Preferred method:**
- - Install Community Applications Plugin made by Squid - https://lime-technology.com/forum/index.php?topic=40262.0
+ - Install Community Applications Plugin made by Squid - https://forums.unraid.net/topic/38582-plug-in-community-applications/
  - Go to the Apps tab in the unRAID GUI
  - Search for the docker, and click add
  - Enter the required info and hit save
