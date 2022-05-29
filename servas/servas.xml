@@ -38,8 +38,7 @@ php artisan migrate&#xD;
 php artisan key:generate&#xD;
 &#xD;
 restart container and you should have acces to WebUI at port:8086&#xD;
-go to http://UnraidIP:8086/register to create a user.&#xD;
-</Overview>
+go to http://UnraidIP:8086/register to create a user.</Overview>
   <Category>Productivity:</Category>
   <WebUI>http://[IP]:[PORT:80]/</WebUI>
   <TemplateURL/>
@@ -47,9 +46,10 @@ go to http://UnraidIP:8086/register to create a user.&#xD;
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1653855751</DateInstalled>
+  <DateInstalled>1653858011</DateInstalled>
   <DonateText/>
   <DonateLink/>
+  <Requires>- External database instance (MySQL/MariaDB)</Requires>
   <Description>A self-hosted bookmark management tool.&#xD;
 Servas is based on Laravel and Inertia.js and uses Tailwind CSS and Svelte for the frontend.&#xD;
 &#xD;
@@ -79,8 +79,7 @@ php artisan migrate&#xD;
 php artisan key:generate&#xD;
 &#xD;
 restart container and you should have acces to WebUI at port:8086&#xD;
-go to http://UnraidIP:8086/register to create a user.&#xD;
-</Description>
+go to http://UnraidIP:8086/register to create a user.</Description>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
