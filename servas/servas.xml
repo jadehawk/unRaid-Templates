@@ -15,27 +15,22 @@ Servas is based on Laravel and Inertia.js and uses Tailwind CSS and Svelte for t
 It still needs a lot of work but developer is active and available at github &#xD;
 &#xD;
 Requirements:&#xD;
-MySQL / Mariadb Database already running and available.&#xD;
-Create a User and DB for servas on your MySQL/Mariadb Instance.&#xD;
+- MySQL / Mariadb Database already running and available.&#xD;
+- CREATE a database (ex. servas-db)&#xD;
+- CREATE a User for servas-db (ex. servas)&#xD;
+- Create a File "config.txt" and place it inside the servas folder (ex. /mnt/user/appdata/servas/config.txt) &#xD;
 &#xD;
-Created config file (filename is : ".ENV" just a dot plus env ) and place inside servas config folder (/mnt/user/appdata/servas/) the content as follow:&#xD;
+- Content of "config.txt" should be:&#xD;
+&#xD;
 APP_NAME=Servas&#xD;
 APP_ENV=production&#xD;
 APP_KEY=&#xD;
 APP_DEBUG=false&#xD;
 APP_URL=&#xD;
 &#xD;
-DB_CONNECTION=mysql&#xD;
-DB_HOST=**** Enter IP/Hostname of mysql/mariadb ****&#xD;
-DB_PORT=3306&#xD;
-DB_DATABASE=**** name you assigned to servasdb ex. servasdb ****&#xD;
-DB_USERNAME=**** username allowed to access servasdb ****&#xD;
-DB_PASSWORD=**** password for user allowed to access servasdb ****&#xD;
-&#xD;
-&#xD;
 Once Container is running open the container console run the following 2 commands one at a time:&#xD;
-php artisan migrate&#xD;
-php artisan key:generate&#xD;
+php artisan migrate                                                         &amp;lt;-- This will Create the tables inside the servas-db&#xD;
+php artisan key:generate                                                &amp;lt;-- This will generate a unique APP_KEY and automatically add it to the "config.txt"&#xD;
 &#xD;
 restart container and you should have acces to WebUI at port:8086&#xD;
 go to http://UnraidIP:8086/register to create a user.</Overview>
@@ -43,10 +38,10 @@ go to http://UnraidIP:8086/register to create a user.</Overview>
   <WebUI>http://[IP]:[PORT:80]/</WebUI>
   <TemplateURL/>
   <Icon>https://github.com/jadehawk/unRaid-Templates/blob/main/servas/servas.png?raw=true</Icon>
-  <ExtraParams/>
+  <ExtraParams>--restart unless-stopped --log-opt max-size=50m --log-opt max-file=1</ExtraParams>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1653858011</DateInstalled>
+  <DateInstalled>1654112569</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Requires>- External database instance (MySQL/MariaDB)</Requires>
@@ -56,27 +51,22 @@ Servas is based on Laravel and Inertia.js and uses Tailwind CSS and Svelte for t
 It still needs a lot of work but developer is active and available at github &#xD;
 &#xD;
 Requirements:&#xD;
-MySQL / Mariadb Database already running and available.&#xD;
-Create a User and DB for servas on your MySQL/Mariadb Instance.&#xD;
+- MySQL / Mariadb Database already running and available.&#xD;
+- CREATE a database (ex. servas-db)&#xD;
+- CREATE a User for servas-db (ex. servas)&#xD;
+- Create a File "config.txt" and place it inside the servas folder (ex. /mnt/user/appdata/servas/config.txt) &#xD;
 &#xD;
-Created config file (filename is : ".ENV" just a dot plus env ) and place inside servas config folder (/mnt/user/appdata/servas/) the content as follow:&#xD;
+- Content of "config.txt" should be:&#xD;
+&#xD;
 APP_NAME=Servas&#xD;
 APP_ENV=production&#xD;
 APP_KEY=&#xD;
 APP_DEBUG=false&#xD;
 APP_URL=&#xD;
 &#xD;
-DB_CONNECTION=mysql&#xD;
-DB_HOST=**** Enter IP/Hostname of mysql/mariadb ****&#xD;
-DB_PORT=3306&#xD;
-DB_DATABASE=**** name you assigned to servasdb ex. servasdb ****&#xD;
-DB_USERNAME=**** username allowed to access servasdb ****&#xD;
-DB_PASSWORD=**** password for user allowed to access servasdb ****&#xD;
-&#xD;
-&#xD;
 Once Container is running open the container console run the following 2 commands one at a time:&#xD;
-php artisan migrate&#xD;
-php artisan key:generate&#xD;
+php artisan migrate                                                         &amp;lt;-- This will Create the tables inside the servas-db&#xD;
+php artisan key:generate                                                &amp;lt;-- This will generate a unique APP_KEY and automatically add it to the "config.txt"&#xD;
 &#xD;
 restart container and you should have acces to WebUI at port:8086&#xD;
 go to http://UnraidIP:8086/register to create a user.</Description>
@@ -92,12 +82,42 @@ go to http://UnraidIP:8086/register to create a user.</Description>
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/user/appdata/servas/.env</HostDir>
+      <HostDir>/mnt/user/appdata/servas/config.txt</HostDir>
       <ContainerDir>/var/www/html/.env</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
   <Environment>
+    <Variable>
+      <Value>mysql</Value>
+      <Name>DB_CONNECTION</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>DB_HOST</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>3306</Value>
+      <Name>DB_PORT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>servas-db</Value>
+      <Name>DB_DATABASE</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>servas</Value>
+      <Name>DB_USERNAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>DB_PASSWORD</Name>
+      <Mode/>
+    </Variable>
     <Variable>
       <Value>99</Value>
       <Name>PUID</Name>
@@ -110,8 +130,14 @@ go to http://UnraidIP:8086/register to create a user.</Description>
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name=".ENV" Target="/var/www/html/.env" Default="" Mode="rw" Description="Container Path: /var/www/html/.env" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/servas/.env</Config>
   <Config Name="Web UI" Target="80" Default="" Mode="tcp" Description="Container Port: 80" Type="Port" Display="always" Required="false" Mask="false">8086</Config>
+  <Config Name="DB_CONNECTION" Target="DB_CONNECTION" Default="mysql" Mode="" Description="Connection to your MySQL/MariaDB" Type="Variable" Display="always" Required="true" Mask="false">mysql</Config>
+  <Config Name="DB_HOST" Target="DB_HOST" Default="" Mode="" Description="Host/IP Address of your MySQL/MariaDB" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="DB_PORT" Target="DB_PORT" Default="3306" Mode="" Description="Database Port. Usually: 3306 for MySQL/MariaDB" Type="Variable" Display="always" Required="true" Mask="false">3306</Config>
+  <Config Name="DB_DATABASE" Target="DB_DATABASE" Default="servas-db" Mode="" Description="Name of your Servas Database" Type="Variable" Display="always" Required="true" Mask="false">servas-db</Config>
+  <Config Name="DB_USERNAME" Target="DB_USERNAME" Default="servas" Mode="" Description="Username with access to your servas-db" Type="Variable" Display="always" Required="true" Mask="false">servas</Config>
+  <Config Name="DB_PASSWORD" Target="DB_PASSWORD" Default="" Mode="" Description="Strong password to assiged to user that has wil have access to servas-db" Type="Variable" Display="always" Required="true" Mask="true"/>
   <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="advanced-hide" Required="false" Mask="false">99</Config>
   <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="advanced-hide" Required="false" Mask="false">100</Config>
+  <Config Name="ENV File" Target="/var/www/html/.env" Default="" Mode="rw" Description="Config File." Type="Path" Display="advanced-hide" Required="false" Mask="false">/mnt/user/appdata/servas/config.txt</Config>
 </Container>
