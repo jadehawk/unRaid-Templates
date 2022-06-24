@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>Servas</Name>
+  <Name>servas</Name>
   <Repository>beromir/servas</Repository>
   <Registry>https://hub.docker.com/r/beromir/servas</Registry>
   <Network>bridge</Network>
@@ -12,132 +12,65 @@
   <Overview>A self-hosted bookmark management tool.&#xD;
 Servas is based on Laravel and Inertia.js and uses Tailwind CSS and Svelte for the frontend.&#xD;
 &#xD;
-It still needs a lot of work but developer is active and available at github &#xD;
+It still needs a lot of work but developer is active and available at github&#xD;
 &#xD;
-Requirements:&#xD;
+MUST DO FIRST:&#xD;
+- Create a Local directory (ex: servas) where the ".env" file will be stored.&#xD;
+- Create a file called .env and inside on it add the line: APP_KEY=&#xD;
+&#xD;
+Fill in the rest of this template.&#xD;
+&#xD;
+Once the container is running, open the container's console and run the following command:&#xD;
+php artisan key:generate --force&#xD;
+---&amp;gt; This will generate a key and it will be stored in the .env file you created.&#xD;
+ReStart Container.&#xD;
+navigate to : http://localhost:8086/register     ---&amp;gt; Here you will generate your admin account.&#xD;
+navigate to: http://localhost:8086/login&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+========================BELLOW IF USING MYSQL/MariaDB========================&#xD;
+&#xD;
+You no longer need MySQL/MariaDB but if you still want to use it, then add the following lines to the .env file:&#xD;
+&#xD;
+# MySQL&#xD;
+DB_CONNECTION=mysql&#xD;
+DB_HOST=db&#xD;
+DB_PORT=3306&#xD;
+DB_DATABASE=servas_db&#xD;
+DB_USERNAME=servas_db_user&#xD;
+DB_PASSWORD=password&#xD;
+&#xD;
+Optional Requirements if using MySQL/MariaDB:&#xD;
 - MySQL / Mariadb Database already running and available.&#xD;
 - CREATE a database (ex. servas-db)&#xD;
 - CREATE a User for servas-db (ex. servas)&#xD;
-- Create a File "config.txt" and place it inside the servas folder (ex. /mnt/user/appdata/servas/config.txt) &#xD;
 &#xD;
-- Content of "config.txt" should be:&#xD;
 &#xD;
-APP_NAME=Servas&#xD;
-APP_ENV=production&#xD;
-APP_KEY=&#xD;
-APP_DEBUG=false&#xD;
-APP_URL=&#xD;
-&#xD;
-Once Container is running open the container console run the following 2 commands one at a time:&#xD;
-php artisan migrate                                                         &amp;lt;-- This will Create the tables inside the servas-db&#xD;
-php artisan key:generate                                                &amp;lt;-- This will generate a unique APP_KEY and automatically add it to the "config.txt"&#xD;
-&#xD;
-restart container and you should have acces to WebUI at port:8086&#xD;
-go to http://UnraidIP:8086/register to create a user.</Overview>
+                                            </Overview>
   <Category>Productivity:</Category>
   <WebUI>http://[IP]:[PORT:80]/</WebUI>
-  <TemplateURL/>
+  <TemplateURL>https://raw.githubusercontent.com/jadehawk/unRaid-Templates/master/servas/servas.xml</TemplateURL>
   <Icon>https://github.com/jadehawk/unRaid-Templates/blob/main/servas/servas.png?raw=true</Icon>
   <ExtraParams>--restart unless-stopped --log-opt max-size=50m --log-opt max-file=1</ExtraParams>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1654112569</DateInstalled>
+  <DateInstalled>1656030933</DateInstalled>
   <DonateText/>
   <DonateLink/>
-  <Requires>- External database instance (MySQL/MariaDB)</Requires>
-  <Description>A self-hosted bookmark management tool.&#xD;
-Servas is based on Laravel and Inertia.js and uses Tailwind CSS and Svelte for the frontend.&#xD;
-&#xD;
-It still needs a lot of work but developer is active and available at github &#xD;
-&#xD;
-Requirements:&#xD;
-- MySQL / Mariadb Database already running and available.&#xD;
-- CREATE a database (ex. servas-db)&#xD;
-- CREATE a User for servas-db (ex. servas)&#xD;
-- Create a File "config.txt" and place it inside the servas folder (ex. /mnt/user/appdata/servas/config.txt) &#xD;
-&#xD;
-- Content of "config.txt" should be:&#xD;
-&#xD;
-APP_NAME=Servas&#xD;
-APP_ENV=production&#xD;
-APP_KEY=&#xD;
-APP_DEBUG=false&#xD;
-APP_URL=&#xD;
-&#xD;
-Once Container is running open the container console run the following 2 commands one at a time:&#xD;
-php artisan migrate                                                         &amp;lt;-- This will Create the tables inside the servas-db&#xD;
-php artisan key:generate                                                &amp;lt;-- This will generate a unique APP_KEY and automatically add it to the "config.txt"&#xD;
-&#xD;
-restart container and you should have acces to WebUI at port:8086&#xD;
-go to http://UnraidIP:8086/register to create a user.</Description>
-  <Networking>
-    <Mode>bridge</Mode>
-    <Publish>
-      <Port>
-        <HostPort>8086</HostPort>
-        <ContainerPort>80</ContainerPort>
-        <Protocol>tcp</Protocol>
-      </Port>
-    </Publish>
-  </Networking>
-  <Data>
-    <Volume>
-      <HostDir>/mnt/user/appdata/servas/config.txt</HostDir>
-      <ContainerDir>/var/www/html/.env</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-  </Data>
-  <Environment>
-    <Variable>
-      <Value>mysql</Value>
-      <Name>DB_CONNECTION</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value/>
-      <Name>DB_HOST</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>3306</Value>
-      <Name>DB_PORT</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>servas-db</Value>
-      <Name>DB_DATABASE</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>servas</Value>
-      <Name>DB_USERNAME</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value/>
-      <Name>DB_PASSWORD</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>99</Value>
-      <Name>PUID</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>100</Value>
-      <Name>PGID</Name>
-      <Mode/>
-    </Variable>
-  </Environment>
-  <Labels/>
-  <Config Name="Web UI" Target="80" Default="" Mode="tcp" Description="Container Port: 80" Type="Port" Display="always" Required="false" Mask="false">8086</Config>
-  <Config Name="DB_CONNECTION" Target="DB_CONNECTION" Default="mysql" Mode="" Description="Connection to your MySQL/MariaDB" Type="Variable" Display="always" Required="true" Mask="false">mysql</Config>
-  <Config Name="DB_HOST" Target="DB_HOST" Default="" Mode="" Description="Host/IP Address of your MySQL/MariaDB" Type="Variable" Display="always" Required="true" Mask="false"/>
-  <Config Name="DB_PORT" Target="DB_PORT" Default="3306" Mode="" Description="Database Port. Usually: 3306 for MySQL/MariaDB" Type="Variable" Display="always" Required="true" Mask="false">3306</Config>
-  <Config Name="DB_DATABASE" Target="DB_DATABASE" Default="servas-db" Mode="" Description="Name of your Servas Database" Type="Variable" Display="always" Required="true" Mask="false">servas-db</Config>
-  <Config Name="DB_USERNAME" Target="DB_USERNAME" Default="servas" Mode="" Description="Username with access to your servas-db" Type="Variable" Display="always" Required="true" Mask="false">servas</Config>
-  <Config Name="DB_PASSWORD" Target="DB_PASSWORD" Default="" Mode="" Description="Strong password to assiged to user that has wil have access to servas-db" Type="Variable" Display="always" Required="true" Mask="true"/>
-  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="advanced-hide" Required="false" Mask="false">99</Config>
-  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="advanced-hide" Required="false" Mask="false">100</Config>
-  <Config Name="ENV File" Target="/var/www/html/.env" Default="" Mode="rw" Description="Config File." Type="Path" Display="advanced-hide" Required="false" Mask="false">/mnt/user/appdata/servas/config.txt</Config>
+  <Requires>- External database instance (MySQL/MariaDB) If using such DB. If not, then NO LONGER NEEDED</Requires>
+  <Config Name="Web UI" Target="80" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">8086</Config>
+  <Config Name="(SQLite) DB_CONNECTION" Target="DB_CONNECTION" Default="sqlite" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">sqlite</Config>
+  <Config Name="(SQLite) DB_DATABASE" Target="DB_DATABASE" Default="/var/www/html/database/sqlite/servas.db" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">/var/www/html/database/sqlite/servas.db</Config>
+  <Config Name="(SQLite) DB_FOREIGN_KEYS" Target="DB_FOREIGN_KEYS" Default="true" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="(.env) File" Target="/var/www/html/.env" Default="" Mode="rw" Description="create a .env file on servas folder" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/servas/.env</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="false" Mask="false">100</Config>
+  <Config Name="APP_KEY" Target="AP_KEY" Default="" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="false" Mask="false"/>
+  <Config Name="APP_ENV" Target="APP_ENV" Default="production" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="false" Mask="false">production</Config>
+  <Config Name="APP_NAME" Target="APP_NAME" Default="Servas" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="false" Mask="false">Servas</Config>
+  <Config Name="APP_DEBUG" Target="APP_DEBUG" Default="false" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="false" Mask="false">false</Config>
+  <Config Name="APP_URL" Target="APP_URL" Default="https://your-servas-instance" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="false" Mask="false">https://your-servas-instance</Config>
+  <Config Name="SERVAS_ENABLE_REGISTRATION" Target="SERVAS_ENABLE_REGISTRATION" Default="true" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="false" Mask="false">true</Config>
 </Container>
