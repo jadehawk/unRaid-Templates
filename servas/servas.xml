@@ -15,8 +15,10 @@ Servas is based on Laravel and Inertia.js and uses Tailwind CSS and Svelte for t
 It still needs a lot of work but developer is active and available at github&#xD;
 &#xD;
 MUST DO FIRST:&#xD;
-- Create a Local directory (ex: servas) where the ".env" file will be stored.&#xD;
+- Create a Local directory (ex: /mnt/user/appdata/servas) where the ".env" &amp;amp; "servas.db" files will be stored.&#xD;
 - Create a file called .env and inside on it add the line: APP_KEY=&#xD;
+- Create a file called servas.db&#xD;
+&#xD;
 &#xD;
 Fill in the rest of this template.&#xD;
 &#xD;
@@ -47,8 +49,7 @@ Optional Requirements if using MySQL/MariaDB:&#xD;
 - CREATE a database (ex. servas-db)&#xD;
 - CREATE a User for servas-db (ex. servas)&#xD;
 &#xD;
-&#xD;
-                                            </Overview>
+</Overview>
   <Category>Productivity:</Category>
   <WebUI>http://[IP]:[PORT:80]/</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/jadehawk/unRaid-Templates/master/servas/servas.xml</TemplateURL>
@@ -56,15 +57,17 @@ Optional Requirements if using MySQL/MariaDB:&#xD;
   <ExtraParams>--restart unless-stopped --log-opt max-size=50m --log-opt max-file=1</ExtraParams>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1656030933</DateInstalled>
+  <DateInstalled>1703579406</DateInstalled>
   <DonateText/>
   <DonateLink/>
-  <Requires>- External database instance (MySQL/MariaDB) If using such DB. If not, then NO LONGER NEEDED</Requires>
+  <Requires>- External database instance (MySQL/MariaDB) If using such DB. If not, then NO LONGER NEEDED&#xD;
+However, The preferred way to use Servas is in combination with a MariaDB container.</Requires>
   <Config Name="Web UI" Target="80" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">8086</Config>
   <Config Name="(SQLite) DB_CONNECTION" Target="DB_CONNECTION" Default="sqlite" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">sqlite</Config>
   <Config Name="(SQLite) DB_DATABASE" Target="DB_DATABASE" Default="/var/www/html/database/sqlite/servas.db" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">/var/www/html/database/sqlite/servas.db</Config>
   <Config Name="(SQLite) DB_FOREIGN_KEYS" Target="DB_FOREIGN_KEYS" Default="true" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
   <Config Name="(.env) File" Target="/var/www/html/.env" Default="" Mode="rw" Description="create a .env file on servas folder" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/servas/.env</Config>
+  <Config Name="(servas.db) Database File" Target="/var/www/html/database/sqlite/servas.db" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/servas/servas.db</Config>
   <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="false" Mask="false">99</Config>
   <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="false" Mask="false">100</Config>
   <Config Name="APP_KEY" Target="AP_KEY" Default="" Mode="" Description="" Type="Variable" Display="advanced-hide" Required="false" Mask="false"/>
